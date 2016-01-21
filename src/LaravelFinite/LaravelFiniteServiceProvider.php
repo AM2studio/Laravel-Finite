@@ -20,8 +20,6 @@ class LaravelFiniteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        require __DIR__ . '/../../vendor/autoload.php';
-
         /*
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('finite.php'),
