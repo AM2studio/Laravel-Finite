@@ -8,20 +8,34 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
-
 ## Install
 
 Via Composer
 
 ``` bash
 $ composer require AM2studio/Laravel-Finite
+php artisan vendor:publish --provider="AM2Studio\LaravelFinite\LaravelFiniteServiceProvider" --tag="migrations"
+```
+
+in ```config/app.php``` 
+
+under ```'providers'``` add
+
+```php
+AM2Studio\LaravelFinite\LaravelFiniteServiceProvider::class,
+```
+
+under ```'alias'``` add
+```php
+'Finite'    => AM2Studio\LaravelFinite\FiniteFacade::class,
 ```
 
 ## Usage
 
 ``` php
+Finite::can($eloquentModelObject, 'finite transition');
+Finite::apply($eloquentModelObject, 'finite transition');
+Finite::getName($eloquentModelObject));
 ```
 
 ## Change log

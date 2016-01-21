@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 class LaravelFiniteServiceProvider extends ServiceProvider
 {
-     /**
+    /**
      * Indicates if loading of the provider is deferred.
      *
      * @var bool
@@ -20,16 +20,23 @@ class LaravelFiniteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        require __DIR__ . '/../../vendor/autoload.php';
 
-        // use this if your package needs a config file
-        // $this->publishes([
-        //         __DIR__.'/config/config.php' => config_path('skeleton.php'),
-        // ]);
+        /*
+        $this->publishes([
+            __DIR__.'/../config/config.php' => config_path('finite.php'),
+        ]);
 
-        // use the vendor configuration file as fallback
-        // $this->mergeConfigFrom(
-        //     __DIR__.'/config/config.php', 'skeleton'
-        // );
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/config.php', 'finite'
+        );
+        */
+
+        $this->publishes([
+            __DIR__.'/../database/migrations/' => database_path(
+                'migrations'
+            )
+        ], 'migrations');
     }
 
     /**
@@ -41,20 +48,17 @@ class LaravelFiniteServiceProvider extends ServiceProvider
     {
         $this->registerFinite();
 
-        // use this if your package has a config file
-        // config([
-        //         'config/skeleton.php',
-        // ]);
+        /*
+        config([
+            'config/finite.php',
+        ]);
+        */
     }
 
     private function registerFinite()
     {
-        $this->app->bind('finite',function($app){
+        $this->app->bind('finite', function ($app) {
             return new Finite($app);
         });
     }
 }
-
-
-
-

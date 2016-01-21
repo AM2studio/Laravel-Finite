@@ -12,13 +12,14 @@
         {
             "name": "Marko Šamec",
             "email": "marko.samec@am2studio.hr",
-            "homepage": "am2studio.hr",
+            "homepage": "http://am2studio.hr",
             "role": "Developer"
         }
     ],
     "require": {
         "illuminate/support": "~5.1",
-        "php" : ">=5.4.0"
+        "php" : ">=5.4.0",
+        "yohang/finite":  "~1.1"
     },
     "require-dev": {
 
