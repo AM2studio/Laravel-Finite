@@ -14,7 +14,6 @@ Via Composer
 
 ``` bash
 $ composer require AM2studio/Laravel-Finite
-php artisan vendor:publish --provider="AM2Studio\LaravelFinite\LaravelFiniteServiceProvider" --tag="migrations"
 ```
 
 in ```config/app.php``` 
@@ -30,7 +29,25 @@ under ```'alias'``` add
 'Finite'    => AM2Studio\LaravelFinite\FiniteFacade::class,
 ```
 
+publish migration files and run migration
+
+```php
+php artisan vendor:publish --provider="AM2Studio\LaravelFinite\LaravelFiniteServiceProvider" --tag="migrations"
+php artisan migrate
+```
+
 ## Usage
+
+In models you want to use it add namespace
+```php
+use AM2Studio\LaravelFinite\Traits\LaravelFiniteTrait;
+```
+
+and then use trait
+
+```php
+use LaravelFiniteTrait;
+```
 
 ``` php
 Finite::can($eloquentModelObject, 'finite transition');
