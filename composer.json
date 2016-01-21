@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "AM2Studio\\Finite\\": "src/LaravelFinite"
+            "AM2Studio\\LaravelFinite\\": "src/LaravelFinite/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AM2Studio\\Finite\\Test\\": "tests"
+            "AM2Studio\\LaravelFinite\\Test\\": "tests"
         }
     },
     "scripts": {
