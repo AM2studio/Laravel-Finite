@@ -16,6 +16,13 @@ class FiniteStates extends Model
     protected $table = 'am2_finite_states';
 
     /**
+     * @var array
+     */
+    protected $casts = [
+        'properties' => 'array'
+    ];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function stateable()

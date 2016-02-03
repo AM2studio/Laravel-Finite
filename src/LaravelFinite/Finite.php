@@ -48,11 +48,11 @@ class Finite
      * @param $value
      * @throws \Finite\Exception\StateException
      */
-    public function apply(\Illuminate\Database\Eloquent\Model $object, $value)
+    public function apply(\Illuminate\Database\Eloquent\Model $object, $value, $properties = [])
     {
         $this->setStateMachine($object);
         $this->stateMachine->apply($value);
-        $object->saveFiniteRelationship($this->stateMachine->getCurrentState()->getName());
+        $object->saveFiniteRelationship($this->stateMachine->getCurrentState()->getName(), $properties);
     }
 
     /**

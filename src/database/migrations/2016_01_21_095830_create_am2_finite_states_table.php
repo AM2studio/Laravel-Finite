@@ -17,6 +17,7 @@ class CreateAm2FiniteStatesTable extends Migration
             $table->bigInteger('stateable_id');
             $table->string('stateable_type');
             $table->string('state');
+            $table->text('properties');
             $table->timestamps();
         });
     }

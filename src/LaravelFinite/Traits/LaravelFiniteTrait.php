@@ -34,10 +34,11 @@ trait LaravelFiniteTrait
         return $this->finiteConfig;
     }
 
-    public function saveFiniteRelationship($stateName)
+    public function saveFiniteRelationship($stateName, $properties = [])
     {
         $state        = new FiniteStates();
         $state->state = $stateName;
+        $state->properties = $properties;
         $this->finiteStates()->save($state);
 
         return $this;
