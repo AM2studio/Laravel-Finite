@@ -20,16 +20,6 @@ class LaravelFiniteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /*
-        $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('finite.php'),
-        ]);
-
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/config.php', 'finite'
-        );
-        */
-
         $this->publishes([
             __DIR__.'/../database/migrations/' => database_path(
                 'migrations'
@@ -45,12 +35,6 @@ class LaravelFiniteServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerFinite();
-
-        /*
-        config([
-            'config/finite.php',
-        ]);
-        */
     }
 
     private function registerFinite()
