@@ -44,6 +44,21 @@ trait LaravelFiniteTrait
         return $this;
     }
 
+    public function getPossibleFiniteStates()
+    {
+        $result       = [];
+        $currentState = Finite::getName($this);
+        foreach ($this->finiteConfig['transitions'] as $transition) {
+            if (in_array($currentState, $transition['from'], true)) {
+                array_push($result, $transition['to']);
+            }
+        }
+        $result = array_unique($result);
+        $result = array_combine($result, $result);
+
+        return $result;
+    }
+
     public static function boot()
     {
         parent::boot();
