@@ -2,6 +2,7 @@
 
 namespace AM2Studio\LaravelFinite;
 
+use AM2Studio\LaravelFinite\Events\StateSuccessfullyApplied;
 use AM2Studio\LaravelFinite\Models\FiniteStates;
 use Finite\StateMachine\StateMachine;
 use Finite\Loader\ArrayLoader;
@@ -53,6 +54,7 @@ class Finite
         $this->setStateMachine($object);
         $this->stateMachine->apply($value);
         $object->saveFiniteRelationship($this->stateMachine->getCurrentState()->getName(), $properties);
+        event(new StateSuccessfullyApplied($object));
     }
 
     /**
