@@ -16,7 +16,7 @@ trait LaravelFiniteTrait
 
     public function getLatestFiniteStateAttribute()
     {
-        return $this->finiteStates()->orderBy('id', 'DESC')->first()->state;
+        return $this->finiteStates->sortByDesc('id')->first()->state;
     }
 
     public function getFiniteState()
