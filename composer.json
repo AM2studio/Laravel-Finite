@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "illuminate/support": "~5.1",
+        "illuminate/support": "~5.1|6.*",
         "php" : ">=5.4.0",
         "yohang/finite":  "~1.1"
     },
